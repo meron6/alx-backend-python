@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
-"""Test file for task_wait_random function"""
+"""Create a task using the regular function syntax, not an async function."""
 import asyncio
+wait_random = __import__('0-basic_async_syntax').wait_random
 
-task_wait_random = __import__('2-task_wait_random').task_wait_random
-
-async def main():
-    task = task_wait_random(5)
-    await task
-    print(f"Task result: {task.result()}")
-
-asyncio.run(main())
+def task_wait_random(max_delay: int) -> asyncio.Task:
+    """Create and return an asyncio.Task that waits for a random delay."""
+    return asyncio.create_task(wait_random(max_delay))
