@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""Collect random numbers using async comprehension from async_generator."""
-
+"""A Python module that returns 10 random numbers using async comprehension."""
 from typing import List
-from _async_generator import async_generator
+async_generator = __import__('0-async_generator').async_generator
 
 async def async_comprehension() -> List[float]:
     """
-    Collect 10 random numbers from async_generator using async comprehension.
-
+    async_comprehension - a function that returns 10 random numbers.
+    Arguments:
+        None
     Returns:
-        List[float]: A list of 10 random numbers.
+        A list of 10 random numbers.
     """
-    return [number async for number in async_generator()]
+    result = [i async for i in async_generator()]
+    return result
